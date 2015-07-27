@@ -48,14 +48,13 @@ class Controllers
     if a.nil?
       puts "Error, task id not found"
       puts " "
+      elsif a.completed == "Yes"
+        puts "Task is already completed! Do nothing on list"
+        puts " "
       else
       a.update(completed: "Yes")
       puts "Completed this task: #{a.task} ON your TODO list..."
       puts " "
-
-      # elsif a.completed = "Yes"
-
-      #   puts "Task is already completed, do nothing on list"
     end
   end
 
