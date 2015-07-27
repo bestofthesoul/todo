@@ -20,8 +20,6 @@ class Controllers
 
   end
 
-
-
   def self.idreset
      a= Task.all
      a.each_with_index do|x, index|
