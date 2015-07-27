@@ -23,7 +23,7 @@ class Controllers
 #2) TO CREATE ONE TASK---
   def self.create(taskdescription)
     Task.create(task: taskdescription, completed: "No")
-    puts "Appended \"#{taskdescription}\" TO your TODO list..."
+    puts "Appended #{taskdescription} TO your TODO list..."
     puts " "
   end
 
@@ -35,7 +35,7 @@ class Controllers
       puts " "
       else
       a.destroy
-      puts "Deleted \"#{a.task}\" FROM your TODO list..."
+      puts "Deleted #{a.task} FROM your TODO list..."
       puts " "
     end
   end
@@ -50,7 +50,7 @@ class Controllers
       puts " "
       else
       a.update(completed: "Yes")
-      puts "Completed this task: \"#{a.task}\" ON your TODO list..."
+      puts "Completed this task: #{a.task} ON your TODO list..."
       puts " "
 
       # elsif a.completed = "Yes"
