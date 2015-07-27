@@ -18,7 +18,7 @@ elsif action == "completed"
   Controllers.complete(bla)
   Controllers.all
 else
-  puts "Error, can only run this ruby file with these actions: list, add, delete or complete...Goodbye!!!"
+  puts "Error, can only run this ruby file with these actions: list, add, delete or completed...Goodbye!!!"
 end
 
 # #driver code

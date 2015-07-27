@@ -42,20 +42,23 @@ class Controllers
 
 
 #4) TO TICK COMPLETE 'YES' ON ONE TASK---
+
   def self.complete(num)
     a = Task.find_by(id: num.to_i)
     if a.nil?
       puts "Error, task id not found"
       puts " "
-      elsif
-        a.completed = "Yes"
-        puts "Task #{num} is already completed"
-        puts " "
       else
-        a.update(completed: "Yes")
-        puts "Completed this task: \"#{a.task}\" ON your TODO list..."
+      a.update(completed: "Yes")
+      puts "Completed this task: \"#{a.task}\" ON your TODO list..."
+      puts " "
+
+      # elsif a.completed = "Yes"
+
+      #   puts "Task is already completed, do nothing on list"
     end
   end
+
 
 
 end
