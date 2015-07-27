@@ -14,11 +14,14 @@ elsif action == "add"
 elsif action == "delete"
   Controllers.delete(bla)
   Controllers.all
-elsif action == "completed"
+elsif action == "complete"
   Controllers.complete(bla)
   Controllers.all
+elsif action == "uncomplete"
+    Controllers.uncomplete(bla)
+    Controllers.all
 else
-  puts "Error, can only run this ruby file with these actions: list, add, delete or completed...Goodbye!!!"
+  puts "Error, can only run this ruby file with these actions: list, add, delete,complete or uncomplete...Goodbye!!!"
 end
 
 # #driver code
