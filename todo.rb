@@ -1,44 +1,56 @@
 require_relative 'config/application'
 
-# puts "Put your application code in #{File.expand_path(__FILE__)}"
-
 
 action = ARGV[0]
 bla = ARGV[1..-1].join(" ")
 
-if action == "list"
-  Controllers.idreset
-  Controllers.all
-elsif action == "add"
-  Controllers.create(bla)
-  Controllers.idreset
-  Controllers.all
-elsif action == "delete"
-  Controllers.delete(bla)
-  Controllers.idreset
-  Controllers.all
-elsif action == "complete"
-  Controllers.complete(bla)
-  Controllers.idreset
-  Controllers.all
-elsif action == "uncomplete"
-  Controllers.uncomplete(bla)
-  Controllers.idreset
-  Controllers.all
-
-else
-  puts "Error, can only run this ruby file with these actions: list, add, delete,complete or uncomplete...Goodbye!!!"
+case action
+  when "list"
+    TodoControllers.list_all
+  when "add"
+    TodoControllers.list_create(bla)
+    TodoControllers.list_all
+  when "delete"
+    TodoControllers.list_delete(bla)
+    TodoControllers.list_all
+  when "complete"
+    TodoControllers.complete_one_task(bla)
+    TodoControllers.list_all
+  when "uncomplete"
+    TodoControllers.uncomplete_one_task(bla)
+    TodoControllers.list_all
+  else
+    puts "ERROR, Type ruby todo.rb with action, action options are: list, add, delete, complete and uncomplete"
 end
 
-# #driver code
-# $ ruby todo.rb list
-# 1. Bake a delicious blueberry-glazed cheesecake
-# 2. Write up that memo and fax it out
-# 3. Conquer the world
 
-# $ ruby todo.rb delete 3
-# Deleted "Conquer the world" from your TODO list...
 
-# $ ruby todo.rb list
-# 1. Bake a delicious blueberry-glazed cheesecake
-# 2. Write up that memo and fax it out
+
+
+
+
+# if action == "list"
+#   TodoControllers.idreset
+#   TodoControllers.listall
+# elsif action == "add"
+#   TodoControllers.create(bla)
+#   TodoControllers.idreset
+#   TodoControllers.listall
+# elsif action == "delete"
+#   TodoControllers.delete(bla)
+#   TodoControllers.idreset
+#   TodoControllers.listall
+# elsif action == "complete"
+#   TodoControllers.complete(bla)
+#   TodoControllers.idreset
+#   TodoControllers.listall
+# elsif action == "uncomplete"
+#   TodoControllers.uncomplete(bla)
+#   TodoControllers.idreset
+#   TodoControllers.listall
+
+# else
+#   puts "Error, can only run this ruby file with these actions: list, add, delete,complete or uncomplete...Goodbye!!!"
+# end
+
+
