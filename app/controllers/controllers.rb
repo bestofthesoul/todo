@@ -10,7 +10,7 @@ class Controllers
     #     puts "#{x.id}. "+ x.task
     # end
     puts "TODO list:"
-    a.each do |x|
+    a.each do |x, index|
       if x.completed == "Yes"
         puts "#{x.id}." + " " + x.task + "-- [1]"
       else
@@ -18,6 +18,15 @@ class Controllers
       end
     end
 
+  end
+
+
+
+  def self.idreset
+     a= Task.all
+     a.each_with_index do|x, index|
+       x.update(id: index+1)
+     end
   end
 
 #2) TO CREATE ONE TASK---
@@ -30,6 +39,7 @@ class Controllers
 #3) TO DELETE ONE TASK---
   def self.delete(num)
     a = Task.find_by(id: num.to_i)
+
     if a.nil?
       puts "Error, task id not found"
       puts " "
@@ -75,17 +85,7 @@ class Controllers
       end
     end
 
-    # def self.updatetask(num)
-    #   a = Task.find_by(id: num.to_i)
-    #   if a.nil?
-    #     puts "Error, task id not found"
-    #     puts " "
-    #     else
-    #       print "revised task description is:"
-    #       taskdescription =  gets.chomp
-    #       a.update(task: "#{taskdescription}")
-    #   end
-    # end
+
 
 end
 
